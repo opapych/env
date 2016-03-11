@@ -14,7 +14,7 @@
     aws_secret_key: "{{ aws.iam.users.admin.secret_key }}"
     command: create
     zone: "{{ item.value.zone }}"
-    record: "{{ item.key }}"
+    record: "{{ item.value.record }}"
     type: "{{ item.value.type }}"
     ttl: "{{ item.value.ttl }}"
     value: "{{ item.value.value }}"

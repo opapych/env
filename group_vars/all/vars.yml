@@ -1,3 +1,4 @@
+# Setting up an apex domain for Github pages: https://help.github.com/articles/setting-up-an-apex-domain/
 ---
 
 aws:
@@ -25,3 +26,12 @@ aws:
         temp_pass: null
         groups:
           - applications
+  route53:
+    zones:
+      opapy.ch: null
+    records:
+      opapy.ch:
+        zone: opapy.ch
+        type: A
+        ttl: 3600
+        value: 192.30.252.153,192.30.252.154

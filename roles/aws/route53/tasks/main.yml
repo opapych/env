@@ -1,2 +1,21 @@
 ---
 
+- name: Create zones
+  route53_zone:
+    aws_access_key: "{{ aws.iam.users.admin.access_key }}"
+    aws_secret_key: "{{ aws.iam.users.admin.secret_key }}"
+    zone: "{{ item.key }}"
+    state: present
+  with_dict: "{{ aws.route53.zones }}"
+
+- name: Register records
+  route53:
+    aws_access_key: "{{ aws.iam.users.admin.access_key }}"
+    aws_secret_key: "{{ aws.iam.users.admin.secret_key }}"
+    command: create
+    zone: "{{ item.value.zone }}"
+    record: "{{ item.key }}"
+    type: "{{ item.value.type }}"
+    ttl: "{{ item.value.ttl }}"
+    value: "{{ item.value.value }}"
+  with_dict: "{{ aws.route53.records }}"

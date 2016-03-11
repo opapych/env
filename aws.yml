@@ -1,0 +1,6 @@
+---
+
+- hosts: localhost
+  roles:
+    - aws/iam
+    - aws/route53

@@ -1,0 +1,32 @@
+---
+
+- name: Create users
+  iam:
+    aws_access_key: "{{ aws.iam.users.admin.access_key }}"
+    aws_secret_key: "{{ aws.iam.users.admin.secret_key }}"
+    iam_type: user
+    name: "{{ item.key }}"
+    password: "{{ item.value.temp_pass }}"
+    access_key_state: create
+    state: present
+    update_password: on_create
+  with_dict: "{{ aws.iam.users }}"
+
+- name: Create groups
+  iam:
+    aws_access_key: "{{ aws.iam.users.admin.access_key }}"
+    aws_secret_key: "{{ aws.iam.users.admin.secret_key }}"
+    iam_type: group
+    name: "{{ item.key }}"
+    state: present
+  with_dict: "{{ aws.iam.groups }}"
+
+- name: Add users to groups
+  iam:
+    aws_access_key: "{{ aws.iam.users.admin.access_key }}"
+    aws_secret_key: "{{ aws.iam.users.admin.secret_key }}"
+    iam_type: user
+    name: "{{ item.key }}"
+    groups: "{{ item.value.groups }}"
+    state: present
+  with_dict: "{{ aws.iam.users }}"

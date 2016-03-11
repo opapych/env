@@ -1,0 +1,27 @@
+---
+
+aws:
+  iam:
+    groups:
+      administrators:
+        roles:
+          - AdministratorAccess
+      developers:
+        roles:
+          - PowerUserAccess
+      applications:
+        roles:
+          - PowerUserAccess
+    users:
+      admin:
+        temp_pass: "{{ vault_aws.iam.users.admin.temp_pass }}"
+        access_key: "{{ vault_aws.iam.users.admin.access_key }}"
+        secret_key: "{{ vault_aws.iam.users.admin.secret_key }}"
+        access_key_ids:
+          - "{{ vault_aws.iam.users.admin.access_key }}"
+        groups:
+          - administrators
+      production:
+        temp_pass: null
+        groups:
+          - applications

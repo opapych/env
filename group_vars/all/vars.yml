@@ -35,16 +35,22 @@ aws:
         record: opapy.ch
         type: A
         ttl: 3600
-        value: 192.30.252.153,192.30.252.154
+        value: 103.203.90.2
       mail:
         zone: opapy.ch
         record: opapy.ch
         type: MX
         ttl: 3600
-        value: 1 ASPMX.L.GOOGLE.COM,5 ALT1.ASPMX.L.GOOGLE.COM,5 ALT2.ASPMX.L.GOOGLE.COM,10 ASPMX2.GOOGLEMAIL.COM,10 ASPMX3.GOOGLEMAIL.COM
+        value: 1 aspmx.l.google.com,5 alt1.aspmx.l.google.com,5 alt2.aspmx.l.google.com,10 aspmx2.googlemail.com,10 aspmx3.googlemail.com
       spf:
         zone: opapy.ch
         record: opapy.ch
         type: SPF
         ttl: 3600
         value: "\"v=spf1 include:_spf.google.com ~all\""
+      txt:
+        zone: opapy.ch
+        record: kloudsecverify2472.opapy.ch
+        type: TXT
+        ttl: 3600
+        value: "\"UezDeJwzJCbVWHhsxivwuM5V\""

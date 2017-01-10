@@ -1,5 +1,9 @@
-# Env for opapy.ch
+# Environment for opapy.ch
+
+[![Requirements Status](https://requires.io/github/opapych/env/requirements.svg?branch=master)](https://requires.io/github/opapych/env/requirements/?branch=master)
+
 ## Setup AWS
+
 ### Configure IAM
 
 See: http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
@@ -15,4 +19,4 @@ See: http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started.html
 
 ## Will you join us?
 
-Opapy is best lol player ever :)
+Opapy is best lol player ever!!1
